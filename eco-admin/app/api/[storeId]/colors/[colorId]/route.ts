@@ -47,7 +47,7 @@ export async function PATCH(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const color = await prismadb.color.updateMany({
       where: { id: params.colorId },
@@ -81,7 +81,7 @@ export async function DELETE(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const color = await prismadb.color.deleteMany({
       where: { id: params.colorId },

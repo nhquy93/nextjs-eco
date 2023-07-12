@@ -47,7 +47,7 @@ export async function PATCH(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const size = await prismadb.size.updateMany({
       where: { id: params.sizeId },
@@ -81,7 +81,7 @@ export async function DELETE(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const size = await prismadb.size.deleteMany({
       where: { id: params.sizeId },

@@ -48,7 +48,7 @@ export async function PATCH(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const category = await prismadb.category.updateMany({
       where: { id: params.categoryId },
@@ -82,7 +82,7 @@ export async function DELETE(
     });
 
     if (!storeByUserId)
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
 
     const category = await prismadb.category.deleteMany({
       where: { id: params.categoryId },
