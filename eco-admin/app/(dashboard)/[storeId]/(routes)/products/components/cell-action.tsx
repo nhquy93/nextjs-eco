@@ -37,7 +37,7 @@ export const CellAction: React.FC<CellActionProps> = ({
             router.refresh();
             toast.success("Product deleted.");
         } catch (err) {
-            toast.error("Make sure you removed all categories using this product first.")
+            toast.error("Something went wrong.")
         } finally {
             setLoading(false);
             setOpen(false);
